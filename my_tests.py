@@ -3,11 +3,21 @@ from pyramid.config import Configurator
 from pyramid.response import Response
 import os
 
+"""
+import bucket_wrapper
+
+def bucket_demo():
+    s3_resource = boto3.resource('s3')
+    prefix = 'ehsan-s3-'
+    buckets = [b for b in BucketWrapper.list(s3_resource) if b.name.startswith(prefix)]
+"""    
+
 def hello_world(request):
     name = os.environ.get('NAME')
     if name == None or len(name) == 0:
         name = "world"
     message = "Hello, " + name + "!\n"
+    print("My test message\n")
     return Response(message)
 
 if __name__ == '__main__':
